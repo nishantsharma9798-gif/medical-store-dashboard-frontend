@@ -1,8 +1,10 @@
 import axios from "axios";
 import { useAuthStore } from "@/store/authStore";
 
+const apiBaseUrl = (import.meta.env.VITE_API_URL ?? "").replace(/\/$/, "");
+
 export const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: apiBaseUrl,
   withCredentials: true, // refresh token cookie
 });
 
@@ -36,7 +38,7 @@ api.interceptors.response.use(
       isRefreshing = true;
       try {
         const { data } = await axios.post(
-          `${import.meta.env.VITE_API_URL}/api/v1/auth/refresh`,
+          `${apiBaseUrl}/api/v1/auth/refresh`,
           {},
           { withCredentials: true }
         );

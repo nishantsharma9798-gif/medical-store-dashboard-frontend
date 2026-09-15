@@ -85,12 +85,12 @@ export default function SuppliersPage() {
               rows={suppliers}
               emptyMessage="No suppliers added yet."
               columns={[
-                { header: "Supplier Name", accessor: (row) => row.name, width: "30%" },
-                { header: "WhatsApp Number", accessor: (row) => row.whatsappNumber || "N/A", width: "25%" },
-                { header: "Medicines Mapped", accessor: (row) => row.mappedMedicineIds?.length ?? 0, width: "20%" },
+                { header: "Supplier Name", accessor: (row) => row.name },
+                { header: "WhatsApp Number", accessor: (row) => row.whatsappNumber || "N/A" },
+                { header: "Medicines Mapped", accessor: (row) => row.mappedMedicineIds?.length ?? 0 },
                 {
                   header: "Actions",
-                  accessor: (row) => (
+                  accessor: () => (
                     <div className="flex gap-2">
                       <button className="text-xs px-3 py-1 bg-brand-100 text-brand-700 rounded hover:bg-brand-200">
                         Edit
@@ -100,7 +100,6 @@ export default function SuppliersPage() {
                       </button>
                     </div>
                   ),
-                  width: "25%",
                 },
               ]}
             />

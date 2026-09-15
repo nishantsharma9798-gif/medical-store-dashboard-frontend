@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
-  BarChart3,
-  Boxes,
   CalendarDays,
   Check,
   ChevronDown,
