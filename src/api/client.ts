@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useAuthStore } from "@/store/authStore";
 
-const apiBaseUrl = (import.meta.env.VITE_API_URL ?? "").replace(/\/$/, "");
+const apiBaseUrl = (import.meta.env.VITE_API_URL ?? "https://medical-store-api-q0h9.onrender.com").replace(/\/$/, "");
 
 export const api = axios.create({
   baseURL: apiBaseUrl,
