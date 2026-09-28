@@ -1,75 +1,155 @@
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
+  Barcode,
   CalendarDays,
   Check,
   ChevronDown,
   CirclePlay,
   Facebook,
+  FolderKanban,
   Instagram,
-  LineChart,
   Linkedin,
   Mail,
   MapPinned,
   MessageCircleMore,
   PackageSearch,
   Phone,
-  FolderKanban,
+  ReceiptText,
   ShieldCheck,
   Smartphone,
+  TrendingDown,
   Users,
   Youtube,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const FEATURES = [
-  {
-    icon: PackageSearch,
-    image: "/images/feature-inventory.jpg",
-    title: "Inventory automation",
-    description:
-      "Scan medicines in and out — purchase or sale — and let stock levels update themselves in real time.",
-  },
-  {
-    icon: MessageCircleMore,
-    image: "/images/feature-whatsapp.jpg",
-    title: "WhatsApp restock alerts",
-    description:
-      "Every Friday, get a WhatsApp alert on which medicines will run low over the weekend — order suppliers in one tap.",
-  },
-  {
-    icon: LineChart,
-    image: "/images/feature-profit-loss.jpg",
-    title: "Profit & loss reports",
-    description:
-      "See exactly what you earned, spent, and paid in tax — medicine-wise and supplier-wise, any date range.",
-  },
+const PROJECTS = [
+  { name: "Inventory", description: "Track stock and expiry", path: "/inventory", available: true },
+  { name: "Billing", description: "Quick counter sales", path: "/billing", available: true },
+  { name: "Suppliers", description: "Order management", path: "/suppliers", available: false },
+  { name: "Reports", description: "Business insights", path: "/reports", available: false },
 ];
 
 const PHARMACY_TYPES = [
-  { image: "/images/pharmacy-retail.jpg", fallback: "/images/feature-inventory.jpg", title: "Retail Pharmacy", description: "Up to 3 staff members" },
-  { image: "/images/pharmacy-large-retail.jpg", fallback: "/images/feature-reports.jpg", title: "Large Retail Pharmacy", description: "Rs 50K+ Daily Sales" },
-  { image: "/images/pharmacy-chain.jpg", fallback: "/images/feature-whatsapp.jpg", title: "Chain Pharmacy", description: "Multilocation" },
-  { image: "/images/pharmacy-clinical.jpg", fallback: "/images/auth-bg.jpg", title: "Clinical Pharmacy", description: "Clinic attached pharmacy" },
+  {
+    title: "Retail pharmacy",
+    description: "Daily sales and stock tracking",
+    image: "/images/pharmacy-large-retail.jpeg",
+    fallback: "/images/pharmacy-large-retail.jpeg",
+  },
+  {
+    title: "Clinic store",
+    description: "Fast purchase and refill management",
+    image: "/images/pharmacy-clinical.jpeg",
+    fallback: "/images/pharmacy-clinical.jpeg",
+  },
+  {
+    title: "Chain outlet",
+    description: "Centralised ordering and controls",
+    image: "/images/pharmacy-chain.jpeg",
+    fallback: "/images/pharmacy-chain.jpeg",
+  },
+  {
+    title: "Wholesale channel",
+    description: "Volume-led stock monitoring",
+    image: "/images/pharmacy-products.jpg",
+    fallback: "/images/pharmacy-products.jpg",
+  },
 ];
 
-const STATS = [
-  { value: "10,000+", label: "Active pharmacies" },
-  { value: "500+", label: "Cities covered" },
-  { value: "15Cr.+", label: "Invoices processed" },
+const FEATURES = [
+  {
+    icon: PackageSearch,
+    image: "/images/know_your_stock_live.jpg",
+    title: "Know your stock, live",
+    description: "Sales and purchase entries update stock so your team can see what is available before promising it.",
+  },
+  {
+    icon: CalendarDays,
+    image: "/images/expiry_watch.jpg",
+    title: "Expiry watch",
+    description: "See medicine records approaching expiry and review them before stock turns into avoidable loss.",
+  },
+  {
+    icon: ReceiptText,
+    image: "/images/feature-profit-loss.png",
+    title: "Quick billing with GST estimate",
+    description: "Build a counter bill quickly, calculate GST from saved medicine rates, and record the sale against stock.",
+  },
+  {
+    icon: MessageCircleMore,
+    image: "/images/Restock.png",
+    title: "Restock before it runs out",
+    description: "Low-stock alerts help your team prepare a reorder request for the mapped supplier.",
+  },
+  {
+    icon: Barcode,
+    image: "/images/barcode.png",
+    title: "Add items without a barcode",
+    description: "Create a medicine record manually with opening stock, GST rate and expiry date when no barcode is available.",
+  },
+  {
+    icon: TrendingDown,
+    image: "/images/slow-moving.png",
+    title: "Spot slow-moving stock",
+    description: "Review stocked medicines with no recorded sale in 30 days to make better purchasing decisions.",
+  },
+];
+
+const PHARMACY_PROBLEMS = [
+  { problem: "Staff are unsure what is in stock", feature: "Real-time inventory", benefit: "Fewer missed sales" },
+  { problem: "Expiry dates are easy to miss", feature: "Expiry watch on medicine records", benefit: "Better stock control" },
+  { problem: "Billing takes too many clicks", feature: "Quick billing with GST estimate", benefit: "Faster checkout" },
+  { problem: "Popular medicines run out", feature: "Daily stock overview", benefit: "Better decisions" },
+  { problem: "Low stock is noticed too late", feature: "Restock alerts for mapped suppliers", benefit: "Fewer lost sales" },
+  { problem: "Some medicines have no barcode", feature: "Manual stock entry", benefit: "Nothing left out of the system" },
+  { problem: "Slow sellers tie up working capital", feature: "30-day no-sale review", benefit: "Smarter purchasing" },
+];
+
+const WORKFLOW_OUTCOMES = [
+  { value: "Quick checkout", label: "Less counter friction" },
+  { value: "Clear stock", label: "Fewer inventory surprises" },
+  { value: "Better buying", label: "More informed decisions" },
 ];
 
 const FAQS = [
-  "Can I manage more than one pharmacy location?",
-  "Will my GST invoices and reports stay compliant?",
-  "Can my staff use the system with role-based access?",
-];
-
-const PROJECTS = [
-  { name: "Medical Store", description: "Inventory, billing and pharmacy operations", path: "/medical/inventory", available: true },
-  { name: "Project 2", description: "Coming soon", path: "#", available: false },
-  { name: "Project 3", description: "Coming soon", path: "#", available: false },
-  { name: "Project 4", description: "Coming soon", path: "#", available: false },
+  {
+    question: "How does pharmacy inventory management software work?",
+    answer: "MedStock keeps medicine stock in one place. Recorded purchase and sale entries update quantities, while the dashboard helps you review low stock, expiry dates and medicines with no recent sales.",
+  },
+  {
+    question: "Can I track medicine expiry dates and near-expiry stock?",
+    answer: "Yes. Add an expiry date to a medicine record and the dashboard highlights medicines that are due to expire within the next 30 days.",
+  },
+  {
+    question: "Does MedStock manage batch-wise inventory?",
+    answer: "MedStock currently tracks stock and expiry dates on medicine records, but it does not yet keep separate batch or lot records.",
+  },
+  {
+    question: "Can I access pharmacy reports on mobile or laptop?",
+    answer: "You can open MedStock in a browser on desktop, tablet or mobile. The dashboard and available report screens adapt to the device size.",
+  },
+  {
+    question: "What makes MedStock useful for a pharmacy?",
+    answer: "It brings inventory, expiry and low-stock visibility, quick billing, supplier restocking and sales summaries into one workspace.",
+  },
+  {
+    question: "Can I add a medicine without a barcode?",
+    answer: "Yes. Add it manually with its name, opening stock, low-stock threshold, GST rate and expiry date.",
+  },
+  {
+    question: "Does quick billing update stock?",
+    answer: "Recorded sale entries update inventory. Billing shows a GST estimate from the rate saved on each medicine.",
+  },
+  {
+    question: "How do low-stock alerts work?",
+    answer: "The dashboard flags medicines at or below their saved stock threshold so you can review what may need restocking.",
+  },
+  {
+    question: "Can I contact MedStock on WhatsApp?",
+    answer: "Yes. Message or call the owner directly at +91 88592 85605.",
+  },
 ];
 
 export default function HomePage() {
@@ -125,10 +205,10 @@ export default function HomePage() {
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-20 text-white sm:py-28 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-32">
           <div className="max-w-2xl">
             <p className="mb-5 inline-flex items-center gap-2 text-sm font-medium text-brand-100">
-              <span className="h-2 w-2 rounded-full bg-brand-300" /> Built for every pharmacy
+              <span className="h-2 w-2 rounded-full bg-brand-300" /> India's Most Trusted Pharmacy Growth System Built for Every One.
             </p>
             <h1 className="text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
-              Care better. <span className="text-brand-300">Run smarter.</span>
+              Run smarter. <span className="text-brand-300">Grow better.</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-white/80">
               Billing, inventory, GST compliance and pharmacy operations in one calm, connected dashboard that works on desktop and mobile.
@@ -169,44 +249,102 @@ export default function HomePage() {
       </section>
 
       <section className="border-b border-brand-100 bg-brand-50/70">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 divide-y divide-brand-100 px-5 py-8 sm:grid-cols-3 sm:divide-x sm:divide-y-0 lg:px-8">
-          {STATS.map((stat) => (
-            <div key={stat.label} className="flex items-center justify-center gap-3 px-5 py-4 text-center sm:flex-col sm:gap-1">
-              <p className="text-3xl font-semibold text-brand-800">{stat.value}</p>
-              <p className="text-sm text-gray-600">{stat.label}</p>
+        <div className="mx-auto grid max-w-7xl grid-cols-1 divide-y divide-brand-100 px-5 py-6 sm:grid-cols-3 sm:divide-x sm:divide-y-0 lg:px-8">
+          {WORKFLOW_OUTCOMES.map((outcome) => (
+            <div key={outcome.label} className="flex items-center justify-center gap-3 px-5 py-4 text-center sm:flex-col sm:gap-1">
+              <p className="text-xl font-semibold text-brand-800">{outcome.value}</p>
+              <p className="text-sm text-gray-600">{outcome.label}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section id="pharmacies" className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
-        <div className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-600">Made for your stage</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">One platform for every kind of pharmacy.</h2>
-          <p className="mt-4 text-gray-600">Start with the essentials, then grow into a connected operation without changing the way your team works.</p>
+      <section id="features" className="border-y border-brand-100/70 bg-[#f5f9f6] px-5 py-16 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-8 max-w-4xl">
+            <p className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-brand-700">
+              <span className="h-2 w-2 rounded-full bg-brand-500" /> Made for medical stores
+            </p>
+            <h2 className="mt-3 text-4xl font-semibold leading-tight tracking-[-0.04em] text-gray-900 lg:text-[2.75rem]">
+              Everyday problems, handled at the counter.
+            </h2>
+            <p className="mt-3 max-w-2xl text-base leading-7 text-gray-600">
+              See how one connected workspace helps your team stay ahead of daily pharmacy work.
+            </p>
+          </div>
+
+          <div className="overflow-hidden rounded-2xl border border-brand-200 bg-white shadow-[0_16px_36px_rgba(20,83,45,0.08)]">
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[760px] border-separate border-spacing-0 text-left text-sm">
+                <thead className="bg-brand-900 text-xs uppercase tracking-[0.14em] text-white">
+                  <tr>
+                    <th className="w-[34%] border-b border-white/10 px-5 py-4 font-semibold sm:px-6">Without a system</th>
+                    <th className="w-[40%] border-b border-white/10 bg-brand-800 px-5 py-4 font-semibold sm:px-6">With MedStock</th>
+                    <th className="w-[26%] border-b border-white/10 px-5 py-4 font-semibold sm:px-6">Business benefit</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-brand-100">
+                  {PHARMACY_PROBLEMS.map((row) => (
+                    <tr key={row.problem} className="group transition-colors hover:bg-gray-50">
+                      <td className="px-5 py-4 text-sm leading-6 text-gray-600 sm:px-6 sm:py-[1.125rem]">{row.problem}</td>
+                      <td className="bg-brand-50/70 px-5 py-4 text-sm font-semibold leading-6 text-brand-900 transition-colors group-hover:bg-brand-100/80 sm:px-6 sm:py-[1.125rem]">
+                        <span className="flex items-center gap-3">
+                          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-600 text-white">
+                            <Check className="h-4 w-4" strokeWidth={2.5} />
+                          </span>
+                          {row.feature}
+                        </span>
+                      </td>
+                      <td className="px-5 py-4 text-sm font-semibold leading-6 text-brand-700 sm:px-6 sm:py-[1.125rem]">{row.benefit}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+      </section>
+
+      <section id="pharmacies" className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
+        <div className="max-w-3xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-600">Made for your stage</p>
+          <h2 className="mt-3 text-4xl font-semibold tracking-[-0.04em] text-gray-900 sm:text-5xl">
+            One platform for every kind of pharmacy.
+          </h2>
+          <p className="mt-4 text-lg text-gray-600">
+            Start with the essentials, then grow into a connected operation without changing the way your team works.
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
           {PHARMACY_TYPES.map((type) => (
-            <div key={type.title} className="group overflow-hidden border border-gray-200 bg-white transition hover:-translate-y-1 hover:border-brand-300 hover:shadow-lg">
-              <div className="relative h-64 overflow-hidden bg-brand-50">
+            <div
+              key={type.title}
+              className="group overflow-hidden rounded-[22px] border border-brand-100 bg-white shadow-[0_18px_34px_rgba(15,23,42,0.04)] transition duration-300 hover:-translate-y-1 hover:border-brand-300 hover:shadow-[0_28px_50px_rgba(20,83,45,0.12)]"
+            >
+              <div className="relative h-72 overflow-hidden bg-brand-50">
                 <img
                   src={type.image}
                   alt={type.title}
                   className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                   onError={(event) => { event.currentTarget.src = type.fallback; }}
                 />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 to-transparent p-5 pt-16 text-white">
-                  <h3 className="text-2xl font-semibold">{type.title}</h3>
-                  <p className="mt-1 text-sm text-white/90">{type.description}</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-5 text-white">
+                  <h3 className="text-[1.8rem] font-semibold leading-none">{type.title}</h3>
+                  <p className="mt-2 text-sm text-white/90">{type.description}</p>
                 </div>
               </div>
-              <a href="#features" className="flex items-center gap-2 p-5 text-sm font-semibold text-brand-700">Explore this pharmacy setup <ArrowRight className="h-4 w-4" /></a>
+              <a href="#features" className="flex items-center justify-between gap-2 px-5 py-4 text-sm font-semibold text-brand-700">
+                <span>Explore this pharmacy setup</span>
+                <ArrowRight className="h-4 w-4" />
+              </a>
             </div>
           ))}
         </div>
       </section>
 
-      <section id="features" className="bg-gray-50 px-5 py-20 lg:px-8 lg:py-28">
+      <section id="capabilities" className="bg-gray-50 px-5 py-20 lg:px-8 lg:py-28">
         <div className="mx-auto max-w-7xl">
           <div className="grid items-end gap-8 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
@@ -215,7 +353,7 @@ export default function HomePage() {
             </div>
             <p className="max-w-xl text-gray-600 lg:justify-self-end">A dependable pharmacy workspace for the busy moments and the decisions behind them.</p>
           </div>
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
             {FEATURES.map((feature) => (
               <article key={feature.title} className="overflow-hidden border border-gray-200 bg-white shadow-sm">
                 <div className="h-48 bg-brand-50 bg-cover bg-center" style={{ backgroundImage: `url('${feature.image}')` }} />
@@ -268,7 +406,15 @@ export default function HomePage() {
       <section id="faq" className="mx-auto max-w-4xl px-5 py-20 lg:py-28">
         <div className="text-center"><p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-600">Questions, answered</p><h2 className="mt-3 text-3xl font-semibold text-gray-900">Everything you need to get started.</h2></div>
         <div className="mt-10 divide-y divide-gray-200 border-y border-gray-200">
-          {FAQS.map((question) => <details key={question} className="group py-5"><summary className="flex cursor-pointer list-none items-center justify-between font-medium text-gray-900">{question}<ChevronDown className="h-5 w-5 text-brand-600 transition group-open:rotate-180" /></summary><p className="mt-3 max-w-2xl text-sm leading-6 text-gray-600">Yes. MedStock is designed to keep setup simple while supporting real pharmacy workflows, teams and locations.</p></details>)}
+          {FAQS.map((item) => (
+            <details key={item.question} className="group py-5">
+              <summary className="flex cursor-pointer list-none items-center justify-between font-medium text-gray-900">
+                {item.question}
+                <ChevronDown className="h-5 w-5 text-brand-600 transition group-open:rotate-180" />
+              </summary>
+              <p className="mt-3 max-w-2xl text-sm leading-6 text-gray-600">{item.answer}</p>
+            </details>
+          ))}
         </div>
       </section>
 
@@ -284,9 +430,9 @@ export default function HomePage() {
           <div>
             <img src="/images/logo.png" alt="MedStock" className="h-10 w-auto brightness-0 invert" />
             <div className="mt-8 space-y-3 text-sm text-white/70">
-              <a href="tel:8401826262" className="flex items-center gap-3 hover:text-white"><Phone className="h-4 w-4 text-brand-400" /> <span className="text-white">Sales</span> 8401826262</a>
+              <a href="tel:+918859285605" className="flex items-center gap-3 hover:text-white"><Phone className="h-4 w-4 text-brand-400" /> <span className="text-white">Sales</span> +91 88592 85605</a>
               <a href="mailto:sales@medstock.in" className="flex items-center gap-3 hover:text-white"><Mail className="h-4 w-4 text-brand-400" /> sales@medstock.in</a>
-              <p className="flex items-center gap-3 pt-6"><MapPinned className="h-4 w-4 text-brand-400" /> Ahmedabad, Gujarat, India</p>
+              <p className="flex items-center gap-3 pt-6"><MapPinned className="h-4 w-4 text-brand-400" /> Noida, Uttar Pradesh, India</p>
             </div>
             <div className="mt-8 flex gap-5 text-white/50" aria-label="Social links">
               <a href="#" aria-label="Facebook" className="hover:text-brand-300"><Facebook className="h-5 w-5" /></a>

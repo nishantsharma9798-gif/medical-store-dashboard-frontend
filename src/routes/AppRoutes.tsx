@@ -12,6 +12,7 @@ import DashboardPage from "@/features/dashboard/DashboardPage";
 import UsersPage from "@/features/dashboard/UsersPage";
 import InventoryListPage from "@/features/medical/inventory/InventoryListPage";
 import ScanEntryPage from "@/features/medical/inventory/ScanEntryPage";
+import QuickBillingPage from "@/features/medical/invoices/QuickBillingPage";
 import SuppliersPage from "@/features/medical/suppliers/SuppliersPage";
 import AlertsPage from "@/features/medical/alerts/AlertsPage";
 import InvoicesPage from "@/features/medical/invoices/InvoicesPage";
@@ -41,6 +42,7 @@ export function AppRoutes() {
 
           <Route path="/medical/inventory" element={<InventoryListPage />} />
           <Route path="/medical/inventory/scan" element={<ScanEntryPage />} />
+          <Route path="/medical/billing" element={<QuickBillingPage />} />
           <Route path="/medical/suppliers" element={<SuppliersPage />} />
           <Route path="/medical/alerts" element={<AlertsPage />} />
           <Route path="/medical/invoices" element={<InvoicesPage />} />

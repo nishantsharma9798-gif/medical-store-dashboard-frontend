@@ -54,8 +54,9 @@ export default function LoginPage() {
     <AuthLayout
       title="Login"
       subtitle="Sign in to manage your store"
-      welcomeTitle="Welcome back to MedStock"
+      welcomeTitle="Welcome to MedStock"
       welcomeCopy="Pick up right where you left off. Your pharmacy operations are ready when you are."
+      centerContent
     >
       <form onSubmit={handleSubmit((values) => mutation.mutate(values))} className="space-y-7">
         <div>

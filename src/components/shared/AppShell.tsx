@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
   { to: "/medical/inventory", label: "Inventory", icon: "📦" },
+  { to: "/medical/billing", label: "Quick billing", icon: "🧾" },
   { to: "/medical/suppliers", label: "Suppliers", icon: "🏢" },
   { to: "/medical/alerts", label: "Alerts", icon: "🔔" },
   { to: "/medical/invoices", label: "Invoices", icon: "📄" },

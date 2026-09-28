@@ -54,10 +54,10 @@ export default function SignupPage() {
     >
       <form
         onSubmit={handleSubmit((values) => mutation.mutate(values))}
-        className="space-y-6"
+        className="grid grid-cols-1 gap-y-1"
       >
         <div>
-          <label className="mb-2 block text-[16px] text-brand-700">Pharmacy Name</label>
+          <label className="mb-1 block text-sm font-medium text-brand-700">Pharmacy Name</label>
           <Input className="auth-field" placeholder="Sharma Medical Store" {...register("businessName")} />
           {errors.businessName && (
             <p className="mt-1 text-xs text-red-600">{errors.businessName.message}</p>
@@ -65,13 +65,13 @@ export default function SignupPage() {
         </div>
 
         <div>
-          <label className="mb-2 block text-[16px] text-brand-700">Your Name</label>
+          <label className="mb-1 block text-sm font-medium text-brand-700">Your Name</label>
           <Input className="auth-field" placeholder="Nishant Sharma" {...register("adminName")} />
           {errors.adminName && <p className="mt-1 text-xs text-red-600">{errors.adminName.message}</p>}
         </div>
 
         <div>
-          <label className="mb-2 block text-[16px] text-brand-700">Mobile Number</label>
+          <label className="mb-1 block text-sm font-medium text-brand-700">Mobile Number</label>
           <Input
             className="auth-field"
             type="tel"
@@ -84,14 +84,14 @@ export default function SignupPage() {
         </div>
 
         <div>
-          <label className="mb-2 block text-[16px] text-brand-700">Email</label>
+          <label className="mb-1 block text-sm font-medium text-brand-700">Email</label>
           <Input className="auth-field" type="email" placeholder="you@store.com" {...register("email")} />
           {errors.email && <p className="mt-1 text-xs text-red-600">{errors.email.message}</p>}
         </div>
 
         <div>
-          <div className="flex items-end justify-between gap-4">
-            <label className="mb-2 block text-[16px] text-brand-700">OTP Verification</label>
+          <div className="mb-1 flex items-end justify-between gap-4">
+            <label className="block text-sm font-medium text-brand-700">OTP Verification</label>
             <button
               type="button"
               className="mb-2 text-sm font-medium text-brand-600 hover:underline disabled:cursor-not-allowed disabled:text-gray-400"
@@ -114,13 +114,13 @@ export default function SignupPage() {
         </div>
 
         <div>
-          <label className="mb-2 block text-[16px] text-brand-700">Password</label>
+          <label className="mb-1 block text-sm font-medium text-brand-700">Password</label>
           <Input className="auth-field" type="password" placeholder="••••••••" {...register("password")} />
           {errors.password && <p className="mt-1 text-xs text-red-600">{errors.password.message}</p>}
         </div>
 
         <div>
-          <label className="mb-2 block text-[16px] text-brand-700">Confirm Password</label>
+          <label className="mb-1 block text-sm font-medium text-brand-700">Confirm Password</label>
           <Input className="auth-field" type="password" placeholder="••••••••" {...register("confirmPassword")} />
           {errors.confirmPassword && (
             <p className="mt-1 text-xs text-red-600">{errors.confirmPassword.message}</p>
@@ -131,12 +131,12 @@ export default function SignupPage() {
           <p className="text-sm text-red-600">Could not create account. This email may already be in use.</p>
         )}
 
-        <Button type="submit" className="h-12 w-full rounded-sm text-base shadow-md" disabled={mutation.isPending}>
+        <Button type="submit" className="h-11 w-full rounded-xl text-base font-semibold shadow-md" disabled={mutation.isPending}>
           {mutation.isPending ? "Creating account..." : "Create account"}
         </Button>
       </form>
 
-      <p className="mt-6 text-center text-sm text-gray-500">
+      <p className="mt-4 text-center text-sm text-gray-500">
         Already have an account?{" "}
         <Link to="/login" className="font-medium text-brand-600 hover:underline">
           Sign in
