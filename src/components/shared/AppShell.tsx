@@ -25,7 +25,7 @@ export function AppShell() {
             <div className="text-2xl">💊</div>
             <h1 className="text-xl font-bold text-neutral-900">MedStock</h1>
           </div>
-          <p className="text-xs text-neutral-500">Professional Pharmacy Management</p>
+          <p className="text-xs text-neutral-500">Kivion tech Pharmacy Management</p>
         </div>
 
         {/* User Info */}
