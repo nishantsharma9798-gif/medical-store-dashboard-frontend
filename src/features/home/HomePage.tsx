@@ -458,6 +458,18 @@ export default function HomePage() {
           <span>© {new Date().getFullYear()} MedStock. Built for medical stores.</span>
           <Link to="/signup"><Button className="h-14 gap-3 rounded-xl bg-brand-500 px-6 text-base text-white shadow-lg shadow-brand-500/20 hover:bg-brand-400"><CalendarDays className="h-5 w-5" /> Book a Demo <ArrowRight className="h-4 w-4" /></Button></Link>
         </div>
+        <div className="mx-auto mt-8 flex max-w-7xl items-center gap-4 border-t border-white/10 pt-6">
+          <img
+            src="/images/com-logo.jpg"
+            alt="Kivion Tech logo"
+            className="h-12 w-20 rounded-md bg-white object-contain p-1.5"
+            onError={(event) => { event.currentTarget.style.visibility = "hidden"; }}
+          />
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/45">Technology partner</p>
+            <p className="mt-1 text-sm font-semibold text-white">Kivion Tech</p>
+          </div>
+        </div>
       </footer>
     </div>
   );
