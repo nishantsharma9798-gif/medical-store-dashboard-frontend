@@ -47,8 +47,8 @@ const PHARMACY_TYPES = [
   {
     title: "Chain outlet",
     description: "Centralised ordering and controls",
-    image: "/images/pharmacy-chain.jpeg",
-    fallback: "/images/pharmacy-chain.jpeg",
+    image: "/images/pharmacy-chain.png",
+    fallback: "/images/pharmacy-chain.png",
   },
   {
     title: "Wholesale channel",
@@ -395,7 +395,7 @@ export default function HomePage() {
                 {index === 1 && <span className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-600">Most popular</span>}
                 <h3 className="mt-2 text-xl font-semibold text-gray-900">{plan}</h3>
                 <p className="mt-2 text-sm text-gray-600">Core tools for confident pharmacy operations.</p>
-                <p className="mt-6 text-3xl font-semibold text-brand-800">{["Free", "₹1,250", "₹3,500"][index]}<span className="text-sm font-normal text-gray-500"> / month</span></p>
+                <p className="mt-6 text-3xl font-semibold text-brand-800">{["Free", "₹999/", "₹2999/"][index]}<span className="text-sm font-normal text-gray-500"> / month</span></p>
                 <Link to="/signup"><Button className="mt-6 w-full">Get started</Button></Link>
               </div>
             ))}
